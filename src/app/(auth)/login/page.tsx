@@ -65,7 +65,7 @@ const Page = () => {
                 title: "Login Successful",
                 description: "Successfully logged in to your Askanon account",
             });
-            router.replace('/dashboard')
+            router.push('/dashboard')
         }
         setLoading(false);
     };
