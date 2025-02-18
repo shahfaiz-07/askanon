@@ -1,11 +1,10 @@
 import Credentials from "next-auth/providers/credentials";
-import type { AuthError, NextAuthConfig } from "next-auth";
-import { API_ERROR_MESSAGE, STATUS_CODES } from "@/constants";
+import type { NextAuthConfig } from "next-auth";
+import { API_ERROR_MESSAGE } from "@/constants";
 import connect from "@/config/db.config";
 import bcrypt from "bcryptjs";
 import { Provider } from "next-auth/providers";
 import { CredentialsSignin } from "next-auth";
-import { emailVerificationTemplate } from "@/emails/verification.template";
 
 class InvalidCredentialsError extends CredentialsSignin {
     code = API_ERROR_MESSAGE.INVALID_CREDENTIALS;

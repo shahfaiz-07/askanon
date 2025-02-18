@@ -94,7 +94,7 @@ export const ALL_ROUTES_MATCHER = [
     "/profile/:path",
     "/send-question",
     "/contact-us"
-] as const;
+];
 
 export const PUBLIC_ROUTES = [
     "/login",
