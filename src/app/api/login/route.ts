@@ -8,7 +8,6 @@ import UserModel from "@/models/user.model";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { ServerResponse } from "@/util/response";
-export const runtime = "nodejs";
 
 export async function POST(request: NextRequest) {
     await connect();
