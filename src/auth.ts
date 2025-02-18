@@ -35,7 +35,7 @@ const providers: Provider[] = [
             try {
                 // Call your API route for authentication
                 const response = await axios.post<ApiResponse>(
-                    `${process.env.DOMAIN}/api/login`,
+                    `https://askanon-nu.vercel.app/api/login`,
                     {
                         identifier,
                         password,
@@ -49,7 +49,7 @@ const providers: Provider[] = [
                 return response.data?.data?.user || null;
             } catch (error) {
                 console.log("Authentication error:", error);
-                throw new CredentialsSignin("Some error occured here");
+                throw new InvalidCredentialsError();
             }
         },
     }),
