@@ -49,7 +49,7 @@ const providers: Provider[] = [
                 return response.data?.data?.user || null;
             } catch (error) {
                 console.log("Authentication error:", error);
-                throw new InvalidCredentialsError();
+                throw new CredentialsSignin("Some error occured here");
             }
         },
     }),
