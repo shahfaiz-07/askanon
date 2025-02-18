@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AskAnon
 
-## Getting Started
+## 📌 Overview
+AskAnon is an anonymous Q&A platform that allows users to receive and respond to anonymous questions. It provides a seamless and secure way for users to interact while maintaining privacy. The platform includes features such as a public profile, AI-powered suggestions, and user customization options.
 
-First, run the development server:
+## 🚀 Features
+- **Anonymous Q&A** – Users can receive anonymous questions and send replies.
+- **Public Profiles** – Each user has a profile page where their details can be viewed publicly.
+- **User Customization** – Users can update their name, bio, and avatar.
+- **AI-Powered Suggestions** – Questions are suggested using **Gemini AI**.
+- **Authentication & Security** – Secure authentication with NextAuth/Auth.js.
+- **Contact Us Page** – Users can reach out via a contact form.
+- **Form Validation** – Uses **Zod** for robust form validation.
+- **UI & Styling** – Built with **ShadCN UI** components.
+- **Default Avatars** – Uses **Boring Avatars** for profile images.
+- **API Calls** – Managed using **Axios**.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🏗️ Tech Stack
+- **Frontend:** Next.js, React, Tailwind CSS, ShadCN UI
+- **Backend:** Next.js API Routes, Mongoose, MongoDB
+- **Authentication:** NextAuth/Auth.js
+- **AI Integration:** Gemini AI (Google Generative AI)
+- **Validation:** Zod
+- **Styling:** Tailwind CSS
+- **Avatar Generation:** Boring Avatars
+- **API Calls:** Axios
+- **Deployment:** Vercel
+
+## 📂 Environment Variables
+Create a `.env` file and add the following variables:
+
+```
+MONGO_URI="your mongodb url"
+AUTH_SECRET="your authjs key"
+GOOGLE_GENERATIVE_AI_API_KEY="your genai ey"
+MAIL_HOST="nodemailer host"
+MAIL_USER="nodemailer user"
+MAIL_PASSWORD="nodemailer user password"
+GEN_AI_MODEL="model version"
+DOMAIN=http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔧 Installation & Setup
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/shahfaiz-07/askanon.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd askanon
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Set up the `.env` file with your credentials.
+5. Start the development server:
+   ```bash
+   npm run dev
+   ```
+6. Open `http://localhost:3000` in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📜 License
+This project is licensed under the MIT License.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 👥 Contributing
+Contributions are welcome! Feel free to fork the repository and submit a pull request.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📞 Contact
+For inquiries, visit the **Contact Us** page or reach out via email.
