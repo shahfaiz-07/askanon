@@ -1,19 +1,18 @@
 import { NextResponse } from "next/server";
-import authConfig from "@/config/auth.config";
-import NextAuth from "next-auth";
 import { PRIVATE_ROUTES, PUBLIC_ROUTES } from "./constants";
-
-const { auth } = NextAuth(authConfig);
+import { auth } from "./auth";
 
 export default auth((request) => {
-
     const url = request.nextUrl;
 
-    if(!request.auth && url.pathname === "/") {
+    if (!request.auth && url.pathname === "/") {
         return NextResponse.redirect(new URL("/dashboard", request.url));
     }
 
-    if (request.auth && PUBLIC_ROUTES.some((path) => url.pathname.startsWith(path))) {
+    if (
+        request.auth &&
+        PUBLIC_ROUTES.some((path) => url.pathname.startsWith(path))
+    ) {
         return NextResponse.redirect(new URL("/dashboard", request.url));
     }
 
@@ -24,7 +23,7 @@ export default auth((request) => {
         return NextResponse.redirect(new URL("/login", request.url));
     }
 
-    return NextResponse.next()
+    return NextResponse.next();
 });
 
 export const config = {

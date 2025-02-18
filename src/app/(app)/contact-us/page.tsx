@@ -73,7 +73,7 @@ export default function ContactForm() {
                             Us
                         </span>
                     </h1>
-                    <p className="mb-4">We'd love to hear from you</p>
+                    <p className="mb-4">We&apos;d love to hear from you</p>
                 </div>
                 <Form {...form}>
                     <form

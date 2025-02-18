@@ -7,7 +7,7 @@ import axios from 'axios'
 import { Loader } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 
-const page = () => {
+const Page = () => {
   const [loading, setLoading] = useState<boolean>(false)
   const [questions, setQuestions] = useState<QuestionType[]>([])
   const [allQuestions, setAllQuestions] = useState<QuestionType[]>([])
@@ -101,4 +101,4 @@ const page = () => {
   );
 }
 
-export default page
+export default Page

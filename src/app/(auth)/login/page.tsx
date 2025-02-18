@@ -20,7 +20,7 @@ import Link from "next/link";
 import { loginSchema } from "@/schemas/login.schema";
 import { signIn } from "next-auth/react";
 
-const page = () => {
+const Page = () => {
     const [loading, setLoading] = useState<boolean>(false);
 
     const { toast } = useToast();
@@ -177,4 +177,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default Page;

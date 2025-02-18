@@ -17,7 +17,7 @@ import { ApiResponse } from "@/types/ApiResponse.type";
 import axios, { AxiosError } from "axios";
 import { Loader, Loader2 } from "lucide-react";
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useState, Suspense } from "react"; // Import Suspense
 import { useCompletion } from "@ai-sdk/react";
 import Link from "next/link";
 
@@ -28,7 +28,15 @@ const parseStringMessages = (messageString: string): string[] => {
 const initialMessageString =
     "What's your favorite movie?||Do you have any pets?||What's your dream job?";
 
-export default function CardWithForm() {
+export default function CardWithFormWrapper() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <CardWithForm />
+        </Suspense>
+    );
+}
+
+function CardWithForm() {
     const searchParams = useSearchParams();
     const [username, setUsername] = useState<string>(
         searchParams.get("u") || ""
@@ -42,7 +50,7 @@ export default function CardWithForm() {
     });
 
     const handleMessageClick = (message: string) => {
-        setQuestion(message)
+        setQuestion(message);
     };
 
     const onSubmit = async () => {
@@ -90,10 +98,11 @@ export default function CardWithForm() {
             toast({
                 title: "Action Failed",
                 description: "Failed to get suggested messages",
-                variant: "destructive"
-            })
+                variant: "destructive",
+            });
         }
     };
+
     return (
         <div className="flex justify-center items-center min-h-screen mb-5">
             <Card className="max-w-[500px] lg:mt-20 border">
@@ -125,8 +134,10 @@ export default function CardWithForm() {
                                     through{" "}
                                     <Link href={"/profile/admin"}>@admin</Link>{" "}
                                     or anyone of the test accounts{" - "}
-                                    <Link href={"/profile/one"}>@one</Link>{", "}
-                                    <Link href={"/profile/two"}>@two</Link>{", "}
+                                    <Link href={"/profile/one"}>@one</Link>
+                                    {", "}
+                                    <Link href={"/profile/two"}>@two</Link>
+                                    {", "}
                                     <Link href={"/profile/three"}>@three</Link>
                                 </p>
                                 <div className="grid w-full gap-1.5 pt-2">

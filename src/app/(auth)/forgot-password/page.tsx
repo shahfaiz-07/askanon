@@ -8,7 +8,7 @@ import axios from 'axios';
 import { Loader } from 'lucide-react';
 import React, { useState } from 'react'
 
-const page = () => {
+const Page = () => {
     const [loading, setLoading] = useState<boolean>(false)
     const [email, setEmail] = useState<string>("")
 
@@ -66,4 +66,4 @@ const page = () => {
   );
 }
 
-export default page
+export default Page

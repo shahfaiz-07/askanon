@@ -17,7 +17,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-const page = () => {
+const Page = () => {
 
   const {data: session} = useSession()
 
@@ -290,4 +290,4 @@ const page = () => {
   );
 }
 
-export default page
+export default Page

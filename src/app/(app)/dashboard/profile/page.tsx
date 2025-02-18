@@ -25,7 +25,7 @@ import { AvatarVariantTypes } from "@/types/avatar.type";
 import { Badge } from "@/components/ui/badge";
 
 
-const page = () => {
+const Page = () => {
     const [loading, setLoading] = useState<boolean>(false);
     const [profileData, setProfileData] = useState<UserResponseType | null>(
         null
@@ -369,4 +369,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default Page;

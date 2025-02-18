@@ -23,7 +23,7 @@ import { Input } from "@/components/ui/input";
 import { CircleCheck, CircleX, Loader } from "lucide-react";
 import Link from "next/link";
 
-const page = () => {
+const Page = () => {
     const [username, setUsername] = useState<string>("");
     const [isUsernameValid, setIsUsernameValid] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(false);
@@ -289,4 +289,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default Page;

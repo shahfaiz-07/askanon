@@ -41,7 +41,8 @@ export const API_ERROR_MESSAGE = {
     INVALID_USERNAME_EMAIL: "Invalid username and/or email. User not found.",
     USERNAME_REQUIRED: "Username is required for existing users",
     CONTACT_US_ERROR: "Error while sending feedback/query. Try again later.",
-    EMAIL_FOUND: "An account is linked to this email, please provide correct username also to continue."
+    EMAIL_FOUND: "An account is linked to this email, please provide correct username also to continue.",
+    LOGIN_ERROR: "Error while user login"
 } as const;
 
 export const API_SUCCESS_MESSAGE = {
@@ -60,7 +61,8 @@ export const API_SUCCESS_MESSAGE = {
     PASSWORD_CHANGED: "Password changed successfully",
     VERIFICATION_EMAIL_SENT: "Verification email sent to your account",
     PUBLIC_PROFILE: "Public profile fetched successfully",
-    CONTACT_US: "Your message is received. We will contact you soon."
+    CONTACT_US: "Your message is received. We will contact you soon.",
+    LOGIN_SUCCESS: "User logged in successfully"
 } as const;
 
 export const STATUS_CODES = {

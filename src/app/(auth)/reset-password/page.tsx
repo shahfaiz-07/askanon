@@ -16,11 +16,19 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import axios, { AxiosError } from "axios";
 import { Loader } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-const page = () => {
+export default function CardWithFormWrapper() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <Page />
+        </Suspense>
+    );
+}
+
+const Page = () => {
     const searchParams = useSearchParams();
 
     const token = searchParams.get("token");
@@ -137,5 +145,3 @@ const page = () => {
         </div>
     );
 };
-
-export default page;

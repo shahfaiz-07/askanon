@@ -4,9 +4,9 @@ import { emailVerificationTemplate } from "@/emails/verification.template";
 import UserModel from "@/models/user.model";
 import { sendEmail } from "@/util/mailer";
 import { ServerResponse } from "@/util/response";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(request: NextResponse) {
+export async function POST(request: NextRequest) {
     await connect()
     try {
 
