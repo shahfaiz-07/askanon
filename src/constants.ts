@@ -82,20 +82,6 @@ export const STATUS_CODES = {
     SERVICE_UNAVAILABLE: 503,
 } as const;
 
-export const ALL_ROUTES_MATCHER = [
-    "/login",
-    "/sign-up",
-    "/",
-    "/dashboard/:path*",
-    "/verify/:path",
-    "/forgot-password",
-    "/reset-password",
-    "/request-verification",
-    "/profile/:path",
-    "/send-question",
-    "/contact-us"
-];
-
 export const PUBLIC_ROUTES = [
     "/login",
     "/sign-up",

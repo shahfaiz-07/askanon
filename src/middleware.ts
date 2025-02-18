@@ -1,7 +1,7 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import authConfig from "@/config/auth.config";
 import NextAuth from "next-auth";
-import { ALL_ROUTES_MATCHER, PRIVATE_ROUTES, PUBLIC_ROUTES } from "./constants";
+import { PRIVATE_ROUTES, PUBLIC_ROUTES } from "./constants";
 
 const { auth } = NextAuth(authConfig);
 
@@ -28,5 +28,17 @@ export default auth((request) => {
 });
 
 export const config = {
-    matcher: ALL_ROUTES_MATCHER,
+    matcher: [
+        "/login",
+        "/sign-up",
+        "/",
+        "/dashboard/:path*",
+        "/verify/:path",
+        "/forgot-password",
+        "/reset-password",
+        "/request-verification",
+        "/profile/:path",
+        "/send-question",
+        "/contact-us",
+    ],
 };
