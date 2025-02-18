@@ -43,7 +43,7 @@ const providers: Provider[] = [
                 );
 
                 if (!response.data.success) {
-                    throw new CredentialsSignin(response.data.message);
+                    throw new CredentialsSignin("Some error occured");
                 }
 
                 return response.data?.data?.user || null;
