@@ -5,7 +5,7 @@ import { auth } from "./auth";
 export default auth((request) => {
     const url = request.nextUrl;
 
-    if (!request.auth && url.pathname === "/") {
+    if (request.auth && url.pathname === "/") {
         return NextResponse.redirect(new URL("/dashboard", request.url));
     }
 
