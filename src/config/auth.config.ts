@@ -88,6 +88,9 @@ export default {
             }
             return token;
         },
+        authorized: async ({auth}) => {
+            return !!auth
+        }
     },
 } satisfies NextAuthConfig;
 

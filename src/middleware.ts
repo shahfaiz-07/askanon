@@ -1,29 +1,32 @@
-import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
-import { PRIVATE_ROUTES, PUBLIC_ROUTES } from "./constants";
+import authConfig from "@/config/auth.config";
+import NextAuth from "next-auth";
+import { ALL_ROUTES_MATCHER, PRIVATE_ROUTES, PUBLIC_ROUTES } from "./constants";
 
-export default async function middleware(request: NextRequest) {
-    const token = await getToken({
-        req: request,
-        secret: process.env.AUTH_SECRET,
-    });
+const { auth } = NextAuth(authConfig);
+
+export default auth((request) => {
 
     const url = request.nextUrl;
 
-    if (token && url.pathname === "/") {
+    if(!request.auth && url.pathname === "/") {
         return NextResponse.redirect(new URL("/dashboard", request.url));
     }
 
-    if (token && PUBLIC_ROUTES.some((path) => url.pathname.startsWith(path))) {
+    if (request.auth && PUBLIC_ROUTES.some((path) => url.pathname.startsWith(path))) {
         return NextResponse.redirect(new URL("/dashboard", request.url));
     }
 
     if (
-        !token &&
+        !request.auth &&
         PRIVATE_ROUTES.some((path) => url.pathname.startsWith(path))
     ) {
         return NextResponse.redirect(new URL("/login", request.url));
     }
 
-    return NextResponse.next();
-}
+    return NextResponse.next()
+});
+
+export const config = {
+    matcher: ALL_ROUTES_MATCHER,
+};
