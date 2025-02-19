@@ -63,7 +63,7 @@ export const resetPasswordLink = (url: string) => {
     <body>
         <div class="container">
             <div class="logo-container">
-                <a href="${process.env.DOMAIN}" class="logo">AskAnon</a>
+                <a href="${process.env.DOMAIN_URI}" class="logo">AskAnon</a>
             </div>
             <div class="message">Password Reset Link</div>
             <div class="body">

@@ -90,7 +90,7 @@ export const emailVerificationTemplate = ({otp , username}: emailVerificationPro
 	<body>
 		<div class="container">
 			<div class="logo-container">
-                <a href="${process.env.DOMAIN}" class="logo">AskAnon</a>
+                <a href="${process.env.DOMAIN_URI}" class="logo">AskAnon</a>
             </div>
 			<div class="message">OTP Verification Email</div>
 			<div class="body">
@@ -101,7 +101,7 @@ export const emailVerificationTemplate = ({otp , username}: emailVerificationPro
 				<p>This OTP is valid for 1 hour. If you did not request this verification, please disregard this email.
 				Once your account is verified, you will have access to our platform and its features. Click on the below link to continue the verification process.</p>
 
-                <a href="${process.env.DOMAIN}/verify/${username}" class="link">Verify Email</a>
+                <a href="${process.env.DOMAIN_URI}/verify/${username}" class="link">Verify Email</a>
 			</div>
 			<div class="support">If you have any questions or need assistance, please feel free to reach out to us at <a
 					href="mailto:askanon.owner@gmail.com">askanon.owner@gmail.com</a>. We are here to help!</div>

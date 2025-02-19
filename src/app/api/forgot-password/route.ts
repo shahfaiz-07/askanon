@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
         const emailResponse = await sendEmail({
             to: email,
             subject: "Askanon Password Reset",
-            content: resetPasswordLink(`${process.env.DOMAIN}/reset-password?token=${user.passwordToken}`)
+            content: resetPasswordLink(`${process.env.DOMAIN_URI}/reset-password?token=${user.passwordToken}`)
         })
         if(!emailResponse.success) {
             return ServerResponse({
