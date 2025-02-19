@@ -37,7 +37,7 @@ MAIL_HOST="nodemailer host"
 MAIL_USER="nodemailer user"
 MAIL_PASSWORD="nodemailer user password"
 GEN_AI_MODEL="model version"
-DOMAIN=http://localhost:3000
+DOMAIN_URI=http://localhost:3000
 ```
 
 ## 🔧 Installation & Setup
@@ -70,4 +70,4 @@ Contributions are welcome! Feel free to fork the repository and submit a pull re
 For inquiries, visit the **Contact Us** page or reach out via email.
 
 ## 🌐 Deployment
-The project is deplouyed on [vercel](https://askanon-nu.vercel.app).
+The project is deployed on [vercel](https://askanon-nu.vercel.app).
