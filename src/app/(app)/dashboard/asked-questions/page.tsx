@@ -44,33 +44,50 @@ const Page = () => {
   }, [])
 
   const onSelectChange = (value: string) => {
-
+    if (value === "all") {
+        setQuestions(allQuestions);
+    } else if (value === "answered") {
+        setQuestions(allQuestions.filter((q) => q.isAnswered === true));
+    } else if (value === "not answered") {
+        console.log("not answered");
+        setQuestions(allQuestions.filter((q) => q.isAnswered === false));
+    }
   }
   return loading ? (
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="flex items-center justify-center min-h-[90vh]">
           <Loader className="animate-spin" />
       </div>
   ) : (
       <>
           {allQuestions && allQuestions.length > 0 ? (
-              <div className="min-h-screen mb-5">
+              <div className="min-h-[90vh] mb-5">
                   <div className="flex justify-between items-center p-5 md:px-10 lg:px-14">
-                      <h1 className="text-lg md:text-3xl font-bold ">
+                      <h1 className="sm:text-lg md:text-3xl font-bold ">
                           Asked Questions
                       </h1>
                       <Select onValueChange={onSelectChange}>
-                          <SelectTrigger className="w-[150px] md:w-[280px]">
+                          <SelectTrigger className="w-[150px] md:w-[280px] text-xs md:text-sm">
                               <SelectValue placeholder="All" />
                           </SelectTrigger>
                           <SelectContent>
                               <SelectGroup>
-                                  <SelectItem value="all" defaultChecked>
+                                  <SelectItem
+                                      value="all"
+                                      defaultChecked
+                                      className="text-xs md:text-sm"
+                                  >
                                       All
                                   </SelectItem>
-                                  <SelectItem value="not answered">
+                                  <SelectItem
+                                      value="not answered"
+                                      className="text-xs md:text-sm"
+                                  >
                                       Not Answered
                                   </SelectItem>
-                                  <SelectItem value="answered">
+                                  <SelectItem
+                                      value="answered"
+                                      className="text-xs md:text-sm"
+                                  >
                                       Answered
                                   </SelectItem>
                               </SelectGroup>
@@ -94,7 +111,7 @@ const Page = () => {
                   </div>
               </div>
           ) : (
-              <div className="flex items-center justify-center min-h-screen p-4">
+              <div className="flex items-center justify-center min-h-[90vh] p-4">
                   <h1 className="max-w-[500px]">
                       You have not sent any questions yet. Send it from{" "}
                       <Link href="/send-question" className="text-blue-600">

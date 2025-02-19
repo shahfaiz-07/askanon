@@ -104,13 +104,13 @@ function CardWithForm() {
     };
 
     return (
-        <div className="flex justify-center items-center min-h-screen mb-5">
+        <div className="flex justify-center items-center min-h-[90vh] my-5">
             <Card className="max-w-[500px] lg:mt-20 border">
                 <CardHeader>
-                    <CardTitle className="text-2xl font-bold mb-2">
+                    <CardTitle className="text-xl md:text-2xl font-bold mb-2">
                         Ask anyone, anything, anonymously
                     </CardTitle>
-                    <CardDescription>
+                    <CardDescription className="text-xs md:text-sm">
                         Ask your friend, family or any other personality in the
                         world anything. Don't worry they won't be knowing it's
                         you.
@@ -129,7 +129,7 @@ function CardWithForm() {
                                         setUsername(e.target.value);
                                     }}
                                 />
-                                <p className="text-sm text-muted-foreground pb-3">
+                                <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground pb-3">
                                     You can send question to admin's profile
                                     through{" "}
                                     <Link href={"/profile/admin"}>@admin</Link>{" "}
@@ -153,7 +153,7 @@ function CardWithForm() {
                                             setQuestion(e.target.value);
                                         }}
                                     />
-                                    <p className="text-sm text-muted-foreground">
+                                    <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground">
                                         Your question will be copied to the
                                         receiver. Make it short and interesting.
                                     </p>
@@ -163,7 +163,7 @@ function CardWithForm() {
                         </div>
                     </form>
                     <div>
-                        <Button onClick={suggestQuestions} disabled={isLoading}>
+                        <Button onClick={suggestQuestions} disabled={isLoading} size="sm" className="text-xs md:text-sm">
                             {isLoading ? (
                                 <Loader className="animate-spin" />
                             ) : (
@@ -179,7 +179,7 @@ function CardWithForm() {
                                         message && (
                                             <div
                                                 key={index}
-                                                className="block w-full text-wrap text-sm border px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer text-center rounded"
+                                                className="block w-full text-wrap text-xs md:text-sm border px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer text-center rounded"
                                                 onClick={() =>
                                                     handleMessageClick(message)
                                                 }

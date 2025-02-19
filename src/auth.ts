@@ -35,7 +35,7 @@ const providers: Provider[] = [
             try {
                 // Call your API route for authentication
                 const response = await axios.post<ApiResponse>(
-                    `https://askanon-nu.vercel.app/api/login`,
+                    `http://localhost:3000/api/login`,
                     {
                         identifier,
                         password,

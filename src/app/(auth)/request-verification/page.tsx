@@ -47,17 +47,17 @@ const Page = () => {
         setLoading(false);
     };
     return (
-        <div className="flex justify-center items-center min-h-screen">
+        <div className="flex justify-center items-center min-h-[90vh]">
             {loading ? (
                 <p className="flex space-x-2">
                     Loading <Loader className="animate-spin" />
                 </p>
             ) : (
-                <div className="max-w-md p-8 space-y-3 rounded-lg shadow-md border">
+                <div className="w-full max-w-sm sm:max-w-md p-6 md:p-8 space-y-5 rounded-lg shadow-md my-8 border">
                     <h1 className="text-lg font-extrabold tracking-tight lg:text-2xl">
                         Account Verification
                     </h1>
-                    <p className="mb-2 text-sm text-gray-600">
+                    <p className="mb-2 text-xs md:text-sm text-gray-600">
                         Account not verified? We got your back. Enter your email
                         below and we will send you an email with the
                         instructions.

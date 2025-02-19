@@ -80,9 +80,9 @@ const Page = () => {
         setLoading(false);
     };
     return (
-        <div className="flex justify-center items-center min-h-screen">
-            <div className="w-full max-w-md p-8 space-y-5 rounded-lg shadow-md my-8 border">
-                <h1 className="text-3xl font-extrabold tracking-tight mb-3">
+        <div className="flex justify-center items-center min-h-[90vh]">
+            <div className="w-full max-w-sm sm:max-w-md p-6 md:p-8 space-y-5 rounded-lg shadow-md my-8 border">
+                <h1 className="text-xl md:text-3xl font-extrabold tracking-tight mb-3">
                     Reset Your Password
                 </h1>
                 <div>

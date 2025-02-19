@@ -160,21 +160,23 @@ const Page = () => {
           description: "URL copied to clipboard",
       });
   };
-  return (
-      loading ?
-        <div className='flex justify-center items-center min-h-screen'>
-            <p className='flex space-x-2'>
-                <span>Loading</span><Loader className='animate-spin'/>
-            </p>
-        </div>
-      :
-      (
-        <div className="p-5 md:px-10 lg:px-14 min-h-screen">
+  return loading ? (
+      <div className="flex justify-center items-center min-h-[90vh]">
+          <p className="flex space-x-2">
+              <span>Loading</span>
+              <Loader className="animate-spin" />
+          </p>
+      </div>
+  ) : (
+      <div className="p-3 sm:p-5 md:px-10 lg:px-14 min-h-[90vh]">
           <div className="text-xl md:text-3xl font-bold mb-5">
               Your Dashboard
           </div>
-          <div className="flex items-center space-x-2 lg:justify-between">
-              <span>Your Public Profile :</span>
+          <div className="flex items-center space-x-2 lg:justify-between text-sm md:text-base">
+              <span>
+                  Your Public Profile{" "}
+                  <span className="hidden lg:inline-block">:</span>
+              </span>
               <input
                   type="text"
                   disabled
@@ -185,7 +187,9 @@ const Page = () => {
                   Copy <LinkIcon />{" "}
               </Button>
           </div>
-          <p className='text-sm dark:text-gray-400 mt-2'>Share it publicly to receive questions</p>
+          <p className="text-xs md:text-sm dark:text-gray-400 mt-2">
+              Share it publicly to receive questions
+          </p>
           <div className="flex items-center space-x-3 mt-4">
               <Switch
                   id="accept-questions"
@@ -207,7 +211,7 @@ const Page = () => {
                       className="w-full space-y-2"
                   >
                       <div className="flex items-center justify-between space-x-4">
-                          <h4 className="font-semibold">
+                          <h4 className="font-semibold text-sm md:text-base">
                               <Link href={"/dashboard/asked-question"}>
                                   Recently Asked Questions
                               </Link>
@@ -226,12 +230,16 @@ const Page = () => {
                       <CollapsibleContent className="space-y-2">
                           {sentQuestions.map((q) => (
                               <div key={q._id}>
-                                  <div className="rounded-md border px-4 py-3 font-mono">
-                                      <p className="text-sm text-ellipsis overflow-hidden whitespace-nowrap">
+                                  <div className="rounded-md border px-3 py-2 md:px-4 md:py-3 font-mono">
+                                      <p className="text-xs md:text-sm text-ellipsis overflow-hidden whitespace-nowrap">
                                           {q.question}
                                       </p>
-                                      <Link href={`/profile/${q.toUsername}`} className="font-bold text-xs">
-                                          Asked From : @{q.toUsername}
+                                      <Link
+                                          href={`/profile/${q.toUsername}`}
+                                          className="text-[10px] md:text-xs"
+                                      >
+                                          Asked From :{" "}
+                                          <span className='font-bold'>@{q.toUsername}</span>
                                       </Link>
                                   </div>
                               </div>
@@ -249,8 +257,10 @@ const Page = () => {
                       className="w-full space-y-2"
                   >
                       <div className="flex items-center justify-between space-x-4">
-                          <h4 className="font-semibold">
-                              <Link href="/dashboard/questions">Recently Received Questions</Link>
+                          <h4 className="font-semibold text-sm md:text-base">
+                              <Link href="/dashboard/questions">
+                                  Recently Received Questions
+                              </Link>
                           </h4>
                           <CollapsibleTrigger asChild>
                               <Button
@@ -266,12 +276,12 @@ const Page = () => {
                       <CollapsibleContent className="space-y-2">
                           {receivedQuestions.map((q) => (
                               <div key={q._id}>
-                                  <div className="rounded-md border px-4 py-3 font-mono">
-                                      <p className="text-sm text-ellipsis overflow-hidden whitespace-nowrap">
+                                  <div className="rounded-md border px-3 py-2 md:px-4 md:py-3 font-mono">
+                                      <p className="text-xs md:text-sm text-ellipsis overflow-hidden whitespace-nowrap">
                                           {q.question}
                                       </p>
                                       <p
-                                          className={`font-bold text-xs ${q.isAnswered ? "text-green-500" : "text-red-700"}`}
+                                          className={`font-bold text-[10px] md:text-xs ${q.isAnswered ? "text-green-500" : "text-red-700"}`}
                                       >
                                           {q.isAnswered
                                               ? "Answered"
@@ -286,7 +296,6 @@ const Page = () => {
               </div>
           )}
       </div>
-      )
   );
 }
 

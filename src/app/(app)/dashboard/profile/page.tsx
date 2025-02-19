@@ -108,7 +108,7 @@ const Page = () => {
     return (
         <div className="">
             {loading || !profileData ? (
-                <div className="flex gap-x-2 items-center justify-center min-h-screen">
+                <div className="flex gap-x-2 items-center justify-center min-h-[90vh]">
                     <p>Loading</p>
                     <Loader className="animate-spin" />
                 </div>

@@ -85,7 +85,7 @@ const QuestionsPreview = ({
                           {question}
                       </AlertTitle>
                       <AlertDescription className="flex justify-between items-center mt-2">
-                          <div className="text-[10px] md:text-xs flex flex-col">
+                          <div className="text-[10px] sm:text-xs md:text-sm flex flex-col">
                               <p
                                   className={`${isAnswered ? "text-green-500" : "text-red-600"} leading-tight font-semibold`}
                               >
@@ -104,7 +104,7 @@ const QuestionsPreview = ({
                                   </Link>
                               )}
                           </div>
-                          <div className="text-[10px] leading-tight md:text-xs flex flex-col">
+                          <div className="text-[8px] sm:text-[10px] leading-tight md:text-xs flex flex-col">
                               <div>
                                   {variant === "asked" ? (
                                       <span className="font-bold">Sent : </span>

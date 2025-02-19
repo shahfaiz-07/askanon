@@ -57,7 +57,7 @@ const Page = () => {
     }, [params]);
 
     return loading ? (
-        <div className="flex flex-col min-h-screen w-full">
+        <div className="flex flex-col min-h-[90vh] w-full">
             <div className="h-[30vh] bg-gradient-to-br from-blue-500 to-purple-400 w-full">
                 <div className="relative top-full -translate-y-[75px] flex-col flex items-center gap-y-3 px-5">
                     <Skeleton className="w-[150px] h-[150px] rounded-full" />
@@ -76,7 +76,7 @@ const Page = () => {
             </div>
         </div>
     ) : profileData !== null ? (
-        <div className="flex flex-col min-h-screen w-full">
+        <div className="flex flex-col min-h-[90vh] w-full">
             <div className="h-[30vh] bg-gradient-to-br from-blue-500 to-purple-400 w-full">
                 <div className="relative top-full -translate-y-[75px] flex-col flex items-center gap-y-3 px-5">
                     <Avatar
@@ -143,7 +143,7 @@ const Page = () => {
             </div>
         </div>
     ) : (
-        <div className="flex items-center justify-center min-h-screen">
+        <div className="flex items-center justify-center min-h-[90vh]">
             <p className="text-center px-3">
                 User not found. Try checking the username.
             </p>

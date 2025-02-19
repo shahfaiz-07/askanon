@@ -74,14 +74,14 @@ const Navbar = () => {
                 <div className="flex items-center gap-x-2">
                     <a
                         href="#"
-                        className="text-transparent bg-gradient-to-br from-blue-400 to-purple-500 bg-clip-text font-extrabold text-2xl"
+                        className="text-transparent bg-gradient-to-br from-blue-400 to-purple-500 bg-clip-text font-extrabold text-lg sm:text-xl md:text-2xl"
                     >
                         AskAnon
                     </a>
                 </div>
                 {session ? (
                     <div className="flex space-x-2 items-center">
-                        <p>Welcome, {user.username}</p>
+                        <p className="hidden sm:inline-block">Welcome, {user.username}</p>
                         {loading ? (
                             <Skeleton className="h-[30px] w-[30px] rounded-full" />
                         ) : (
@@ -104,16 +104,20 @@ const Navbar = () => {
                 ) : (
                     <div className="flex space-x-2 items-center">
                         <Link href={"/login"}>
-                            <Button>Login</Button>
+                            <Button className="text-xs sm:text-sm">
+                                Login
+                            </Button>
                         </Link>
                         <Link href={"/sign-up"}>
-                            <Button>Sign up</Button>
+                            <Button className="text-xs sm:text-sm">
+                                Sign Up
+                            </Button>
                         </Link>
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <Button variant="outline" size="icon">
-                                    <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                                    <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                                    <Sun className="h-[1rem] w-[1rem] md:h-[1.2rem] md:w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                                    <Moon className="absolute h-[1rem] w-[1rem] md:h-[1.2rem] md:w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
                                     <span className="sr-only">
                                         Toggle theme
                                     </span>
@@ -123,12 +127,16 @@ const Navbar = () => {
                                 <DropdownMenuItem
                                     onClick={() => setTheme("light")}
                                 >
-                                    Light
+                                    <span className="text-xs md:text-base">
+                                        Light
+                                    </span>
                                 </DropdownMenuItem>
                                 <DropdownMenuItem
                                     onClick={() => setTheme("dark")}
                                 >
-                                    Dark
+                                    <span className="text-xs md:text-base">
+                                        Dark
+                                    </span>
                                 </DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>

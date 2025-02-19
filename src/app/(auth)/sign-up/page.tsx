@@ -114,17 +114,17 @@ const Page = () => {
     };
 
     return (
-        <div className="flex justify-center items-center min-h-screen">
-            <div className="w-full max-w-md p-8 space-y-5 rounded-lg shadow-md my-8 border">
+        <div className="flex justify-center items-center min-h-[90vh]">
+            <div className="w-full max-w-sm sm:max-w-md p-6 md:p-8 space-y-5 rounded-lg shadow-md my-8 border">
                 <div className="text-center">
-                    <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
+                    <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
                         {" "}
                         Join{" "}
                         <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
                             AskAnon
                         </span>
                     </h1>
-                    <p className="mb-4">
+                    <p className="text-xs sm:text-sm md:text-base mb-4">
                         Sign up to start your anonymous adventure
                     </p>
                 </div>
@@ -263,7 +263,7 @@ const Page = () => {
                             </Button>
                         </form>
                     </Form>
-                    <div className="text-center mt-4">
+                    <div className="text-xs sm:text-sm md:text-base text-center mt-4">
                         <p>
                             Already a member?{" "}
                             <Link

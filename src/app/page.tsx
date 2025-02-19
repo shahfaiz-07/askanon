@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function Home() {
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen p-6">
+        <div className="flex flex-col items-center justify-center min-h-[90vh] p-2 sm:p-4 md:p-6">
             <motion.h1
                 className="text-4xl md:text-5xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500"
                 initial={{ opacity: 0, y: -20 }}
@@ -17,7 +17,7 @@ export default function Home() {
             >
                 AskAnon
             </motion.h1>
-            <p className="text-lg mt-2 text-center dark:text-gray-300">
+            <p className="text-base md:text-lg mt-2 text-center dark:text-gray-300">
                 Ask anynone, anything, anonymously.
             </p>
 
@@ -33,19 +33,19 @@ export default function Home() {
                         <h2 className="text-2xl font-semibold">
                             Stay Anonymous
                         </h2>
-                        <p className="dark:text-gray-300 text-center mt-1">
+                        <p className="dark:text-gray-300 text-center mt-1 text-xs sm:text-sm md:text-base">
                             Create account to start your anonymous journey
                             today.
                         </p>
                         <Link href={"/sign-up"}>
                             <Button
-                                className="my-4 w-full text-lg"
+                                className="my-4 w-full md:text-lg"
                                 variant="default"
                             >
                                 Start now
                             </Button>
                         </Link>
-                        <p>
+                        <p className="text-xs sm:text-sm md:text-base">
                             Already have an account?{" "}
                             <Link
                                 href="/login"
@@ -54,7 +54,7 @@ export default function Home() {
                                 Login.
                             </Link>
                         </p>
-                        <p>
+                        <p className="text-xs sm:text-sm md:text-base">
                             Need help?{" "}
                             <Link
                                 href="/contact-us"
@@ -69,7 +69,7 @@ export default function Home() {
 
             <Separator className="my-6 w-1/2 bg-gray-600" />
 
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-gray-400 mx-2">
                 Join thousands of users in open, honest discussions.
             </p>
         </div>

@@ -75,8 +75,8 @@ export default function InputOTPForm() {
     }
 
     return (
-        <div className="flex justify-center items-center min-h-screen">
-            <div className="w-full max-w-md p-8 space-y-5 rounded-lg shadow-md border">
+        <div className="flex justify-center items-center min-h-[90vh]">
+            <div className="w-full max-w-sm sm:max-w-md p-6 md:p-8 space-y-5 rounded-lg shadow-md my-8 border">
                 <h1 className="text-lg font-extrabold tracking-tight lg:text-2xl mb-6">
                     {" "}
                     AskAnon Email Verification

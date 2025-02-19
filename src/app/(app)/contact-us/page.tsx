@@ -64,10 +64,10 @@ export default function ContactForm() {
     };
 
     return (
-        <div className="flex justify-center items-center min-h-screen">
-            <div className="w-full max-w-md p-8 space-y-5 rounded-lg shadow-md my-8 border">
+        <div className="flex justify-center items-center min-h-[90vh]">
+            <div className="w-full max-w-sm sm:max-w-md p-6 md:p-8 space-y-5 rounded-lg shadow-md my-8 border">
                 <div className="text-center">
-                    <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
+                    <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
                         Contact{" "}
                         <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
                             Us
@@ -160,8 +160,12 @@ export default function ContactForm() {
                                             <Checkbox
                                                 checked={field.value}
                                                 onCheckedChange={() => {
-                                                    setIsExistingUser(!field.value);
-                                                    field.onChange(!field.value);
+                                                    setIsExistingUser(
+                                                        !field.value
+                                                    );
+                                                    field.onChange(
+                                                        !field.value
+                                                    );
                                                 }}
                                             />
                                             <FormLabel>
