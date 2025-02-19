@@ -212,7 +212,7 @@ const Page = () => {
                   >
                       <div className="flex items-center justify-between space-x-4">
                           <h4 className="font-semibold text-sm md:text-base">
-                              <Link href={"/dashboard/asked-question"}>
+                              <Link href={"/dashboard/asked-questions"}>
                                   Recently Asked Questions
                               </Link>
                           </h4>
