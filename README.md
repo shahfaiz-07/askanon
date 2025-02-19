@@ -68,3 +68,6 @@ Contributions are welcome! Feel free to fork the repository and submit a pull re
 
 ## 📞 Contact
 For inquiries, visit the **Contact Us** page or reach out via email.
+
+## 🌐 Deployment
+The project is deplouyed on [vercel](https://askanon-nu.vercel.app).
