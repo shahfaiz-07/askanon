@@ -35,7 +35,7 @@ const providers: Provider[] = [
             try {
                 // Call your API route for authentication
                 const response = await axios.post<ApiResponse>(
-                    `${process.env.DOMAIN}/api/login`,
+                    `${process.env.DOMAIN_URI}/api/login`,
                     {
                         identifier,
                         password,
