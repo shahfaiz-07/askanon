@@ -1,9 +1,8 @@
 import Credentials from "next-auth/providers/credentials";
+import Google from "next-auth/providers/google";
 import { API_ERROR_MESSAGE } from "@/constants";
-import connect from "@/config/db.config";
-import bcrypt from "bcryptjs";
 import { Provider } from "next-auth/providers";
-import NextAuth, { CredentialsSignin, NextAuthConfig } from "next-auth";
+import NextAuth, { CredentialsSignin } from "next-auth";
 import axios from "axios";
 import { ApiResponse } from "./types/ApiResponse.type";
 
@@ -35,7 +34,7 @@ const providers: Provider[] = [
             try {
                 // Call your API route for authentication
                 const response = await axios.post<ApiResponse>(
-                    `${process.env.DOMAIN_URI}/api/login`,
+                    `${process.env.DOMAIN_URI}/api/login/credentials`,
                     {
                         identifier,
                         password,
@@ -49,10 +48,43 @@ const providers: Provider[] = [
                 return response.data?.data?.user || null;
             } catch (error) {
                 console.log("Authentication error:", error);
-                throw new InvalidCredentialsError();
+                return null
             }
         },
     }),
+    Google({
+        name: "google",
+        async profile(profile) {
+            const email = profile.email
+
+            try {
+                const response = await axios.post(
+                    `${process.env.DOMAIN_URI}/api/login/google`,
+                    {
+                        email
+                    }
+                );
+
+                if(!response.data.success) {
+                    throw new Error(
+                        response.data.message ??
+                            "Error signing in through google"
+                    );
+                }
+
+                const user = response.data.user
+
+                user.username = user?.username;
+                user._id = user?._id;
+                user.isVerified = user?.isVerified;
+                user.isAcceptingMessages = user?.isAcceptingMessages;
+                return user
+            } catch (error: any) {
+                console.log("Authentication error:", error);
+                throw new InvalidCredentialsError()
+            }
+        }
+    })
 ];
 
 export const { auth, handlers } = NextAuth({
@@ -63,6 +95,7 @@ export const { auth, handlers } = NextAuth({
     secret: process.env.AUTH_SECRET,
     pages: {
         signIn: "/login",
+        error: "/login"
     },
     callbacks: {
         async session({ session, token }) {
@@ -75,7 +108,13 @@ export const { auth, handlers } = NextAuth({
             }
             return session;
         },
-        async jwt({ token, user }) {
+        async jwt({ token, user, account, profile }) {
+            if(account?.provider === "google" && user) {
+                token._id = user._id?.toString();
+                token.username = user.username;
+                token.isVerified = user.isVerified;
+                token.isAcceptingMessages = user.isAcceptingMessages;
+            }
             if (user) {
                 // moving information from jwt 'user' to 'token'
                 token._id = user._id?.toString();
@@ -84,9 +123,6 @@ export const { auth, handlers } = NextAuth({
                 token.isAcceptingMessages = user.isAcceptingMessages;
             }
             return token;
-        },
-        authorized: async ({ auth }) => {
-            return !!auth;
         },
     },
 });

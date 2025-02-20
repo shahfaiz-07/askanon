@@ -91,8 +91,6 @@ const Page = () => {
     setLoading(true)
     try {
       const response = await axios.get<ApiResponse>('/api/recent-questions-sent')
-      console.log('Recently Sent Questions')
-      console.log(response)
       if(!response.data.success) {
         toast({
           title: "Error",

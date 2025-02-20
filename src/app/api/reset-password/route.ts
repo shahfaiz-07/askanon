@@ -45,7 +45,6 @@ export async function POST(request: NextRequest) {
         const user = await UserModel.findOne({passwordToken: token})
 
         if(!user) {
-            console.log("User not found")
             return ServerResponse({
                 success: false,
                 message: API_ERROR_MESSAGE.PASS_TOKEN_INVALID,

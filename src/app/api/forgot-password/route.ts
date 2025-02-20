@@ -34,7 +34,6 @@ export async function POST(request: NextRequest) {
                 status: STATUS_CODES.NOT_FOUND,
             });
         }
-        console.log("User found");
 
         if(!user.isVerified) {
             return ServerResponse({
@@ -43,7 +42,6 @@ export async function POST(request: NextRequest) {
                 status: STATUS_CODES.FORBIDDEN
             })
         }
-        console.log("User is verified");
 
         const passwordToken = crypto.randomUUID();
         const passwordTokenExpiry = new Date(Date.now() + 3600000);
@@ -52,7 +50,6 @@ export async function POST(request: NextRequest) {
         user.passwordTokenExpiry = passwordTokenExpiry;
 
         await user.save()
-        console.log("Updated");
 
         const emailResponse = await sendEmail({
             to: email,

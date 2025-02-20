@@ -58,7 +58,6 @@ const Page = () => {
         } else if (value === "answered") {
             setQuestions(allQuestions.filter((q) => q.isAnswered === true));
         } else if (value === "not answered") {
-            console.log("not answered");
             setQuestions(allQuestions.filter((q) => q.isAnswered === false));
         }
     };

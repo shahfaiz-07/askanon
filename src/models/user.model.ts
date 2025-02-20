@@ -81,7 +81,6 @@ const userSchema: Schema<User> = new Schema(
     },
     { timestamps: true }
 );
-console.log(`mongoose : ${mongoose.models}`)
 const UserModel =
     mongoose.models.User as mongoose.Model<User> || mongoose.model<User>("User", userSchema);
 

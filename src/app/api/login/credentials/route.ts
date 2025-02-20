@@ -13,7 +13,6 @@ export async function POST(request: NextRequest) {
     await connect();
 
     try {
-        console.log("INSIDE THE LOGIN URL...");
         const { identifier, password } = await request.json();
 
         // Find user by email or username

@@ -50,7 +50,6 @@ export async function GET(request: NextRequest) {
         ]).exec();
 
         if(!userQuestions) {
-            console.log('ERROR fetching questions from MongoDB!!')
             return ServerResponse({
                 success: false,
                 message: API_ERROR_MESSAGE.GET_USER_QUESTION,

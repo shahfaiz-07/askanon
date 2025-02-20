@@ -56,8 +56,6 @@ export async function POST(request: NextRequest) {
             question
         });
 
-        console.log(questionEntry)
-
         if(!questionEntry) {
             return ServerResponse({
                 success: false,

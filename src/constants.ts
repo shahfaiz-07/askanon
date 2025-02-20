@@ -42,7 +42,9 @@ export const API_ERROR_MESSAGE = {
     USERNAME_REQUIRED: "Username is required for existing users",
     CONTACT_US_ERROR: "Error while sending feedback/query. Try again later.",
     EMAIL_FOUND: "An account is linked to this email, please provide correct username also to continue.",
-    LOGIN_ERROR: "Error while user login"
+    LOGIN_ERROR: "Error while user login",
+    GOOGLE_LOGIN_ERROR: "Error while login through google",
+    EMAIL_NOT_FOUND: "Email not found. Sign Up First."
 } as const;
 
 export const API_SUCCESS_MESSAGE = {

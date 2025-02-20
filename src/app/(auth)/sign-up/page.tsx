@@ -77,8 +77,6 @@ const Page = () => {
         checkUsernameValidity();
     }, [username]);
 
-    console.log(isUsernameValid || loading);
-
     const onSubmit = async (data: z.infer<typeof signupSchema>) => {
         setLoading(true);
 

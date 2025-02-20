@@ -61,7 +61,6 @@ const Page = () => {
     const updateUserProfileData = async () => {
         setLoading(true);
         try {
-            console.log("Inside profile updation");
             const response = await axios.post<ApiResponse>(
                 "/api/user-profile",
                 {

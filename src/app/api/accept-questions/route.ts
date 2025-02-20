@@ -30,7 +30,6 @@ export async function POST(request: NextRequest) {
         )
 
         if(!updatedUser) {
-            console.log('ERROR while updating isAcceptingQuestion flag in MongoDB')
             return ServerResponse({
                 success: false,
                 message: API_ERROR_MESSAGE.USER_MESSAGE_FLAG_UPDATE,
