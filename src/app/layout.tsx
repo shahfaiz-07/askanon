@@ -45,6 +45,7 @@ export default function RootLayout({
                         enableSystem
                         disableTransitionOnChange
                     >
+                        <Toaster />
                         <SidebarProvider defaultOpen={false}>
                             <AppSidebar/>
                             <main className="w-full">
@@ -52,7 +53,6 @@ export default function RootLayout({
                                 {children}
                                 <Separator/>
                                 <Footer/>
-                                <Toaster />
                             </main>
                         </SidebarProvider>
                     </ThemeProvider>

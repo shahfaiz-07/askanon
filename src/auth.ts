@@ -81,7 +81,7 @@ const providers: Provider[] = [
                 return user
             } catch (error: any) {
                 console.log("Authentication error:", error);
-                throw new InvalidCredentialsError()
+                return null
             }
         }
     })
