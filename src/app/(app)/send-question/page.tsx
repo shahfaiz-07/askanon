@@ -20,6 +20,7 @@ import { useSearchParams } from "next/navigation";
 import { useState, Suspense } from "react"; // Import Suspense
 import { useCompletion } from "@ai-sdk/react";
 import Link from "next/link";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const parseStringMessages = (messageString: string): string[] => {
     return messageString.split("||");
@@ -165,29 +166,59 @@ function CardWithForm() {
                     <div>
                         <Button onClick={suggestQuestions} disabled={isLoading} size="sm" className="text-xs md:text-sm">
                             {isLoading ? (
-                                <Loader className="animate-spin" />
+                                <>Thinking <Loader className="animate-spin" /></>
                             ) : (
                                 "Suggest Questions"
                             )}
                         </Button>
                         <div className="flex flex-col gap-y-3 mt-5">
-                            {error ? (
-                                <p className="text-red-500">{error.message}</p>
+                            {isLoading
+                            ?
+                            (
+                            <>
+                            <Skeleton>
+                                <div
+                                    className="block w-full text-wrap text-xs md:text-sm border px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer text-center rounded h-10"
+                                >
+                                </div>
+                                
+                            </Skeleton>
+                            <Skeleton>
+                                <div
+                                    className="block w-full text-wrap text-xs md:text-sm border px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer text-center rounded h-10"
+                                >
+                                </div>
+                                
+                            </Skeleton>
+                            <Skeleton>
+                                <div
+                                    className="block w-full text-wrap text-xs md:text-sm border px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer text-center rounded h-10"
+                                >
+                                </div>
+                                
+                            </Skeleton>
+                            </>
+                            )
+                            :
+                            (
+                            error ? (
+                            <p className="text-red-500">{error.message}</p>
                             ) : (
-                                parseStringMessages(completion).map(
+                            parseStringMessages(completion).map(
                                     (message, index) =>
-                                        message && (
-                                            <div
-                                                key={index}
-                                                className="block w-full text-wrap text-xs md:text-sm border px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer text-center rounded"
-                                                onClick={() =>
-                                                    handleMessageClick(message)
-                                                }
-                                            >
-                                                {message}
-                                            </div>
-                                        )
-                                )
+                            message && (
+                            <div
+                                key={index}
+                                className="block w-full text-wrap text-xs md:text-sm border px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer text-center rounded"
+                                onClick={() =>
+                                    handleMessageClick(message)
+                                }
+                            >
+                                {message}
+                            </div>
+                            )
+                            )
+                            )
                             )}
                         </div>
                     </div>
